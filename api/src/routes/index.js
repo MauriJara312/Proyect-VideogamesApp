@@ -15,6 +15,7 @@ const getApiInf = async () => {
         return {
             id : el.id,
             name : el.name,
+            image : el.background_image,
             released:el.released,
             rating:el.rating,
             description: el.description,
@@ -80,7 +81,7 @@ router.post("/videogames", async ( req , res )=>{
 try {
     let {
         name,
-        Image,
+        image,
         description,
         released,
         rating,
@@ -90,7 +91,7 @@ try {
 
     let videogameCreated = await Videogame.create({
         name,
-        Image,
+        image,
         description,
         released,
         rating,
