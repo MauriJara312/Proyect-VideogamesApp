@@ -80,6 +80,7 @@ router.post("/videogames", async ( req , res )=>{
 try {
     let {
         name,
+        Image,
         description,
         released,
         rating,
@@ -89,6 +90,7 @@ try {
 
     let videogameCreated = await Videogame.create({
         name,
+        Image,
         description,
         released,
         rating,
