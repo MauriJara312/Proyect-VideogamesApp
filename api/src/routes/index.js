@@ -2,8 +2,7 @@ const { Router } = require('express');
 // Importar todos los routers;
 // Ejemplo: const authRouter = require('./auth.js');
 const axios = require ("axios");
-const { Videogame, Genre } = require ('../db');
-
+const { Videogame, Genre } = require ('../db.js');
 
 const router = Router();
 // 
@@ -18,6 +17,7 @@ const getApiInf = async () => {
             name : el.name,
             released:el.released,
             rating:el.rating,
+            description: el.description,
             platforms:el.platforms.map(el => el),
         }
     })
@@ -75,4 +75,56 @@ router.get("/genres", async (req,res)=>{
 
     res.send(allGenres);
 })
+
+router.post("/videogames", async ( req , res )=>{
+try {
+    let {
+        name,
+        description,
+        released,
+        rating,
+        genre,
+        platforms,
+    } = req.body;
+
+    let videogameCreated = await Videogame.create({
+        name,
+        description,
+        released,
+        rating,
+        platforms,
+    })
+
+    genre.forEach ( async e => {
+      let eachGenre = await Genre.findOne({
+            where: { name: e}
+        })
+
+        await videogameCreated.addGenre(eachGenre)
+
+    });
+
+    res.send("Videogame Created")
+
+
+}catch(error){
+    throw error
+}
+   
+});
+
+router.get("/videogame/:id", async ( req, res ) => {
+    const id = req.params.id;
+    const allVideogames = await getAllInf()
+
+    if (id){
+        let videogameId = await allVideogames.filter(el => el.id == id )
+    
+
+        videogameId.length?
+        res.status(200).json(videogameId):
+        res.status(404).send("The videogame does not exists")
+    }
+    })
+
 module.exports = router;
