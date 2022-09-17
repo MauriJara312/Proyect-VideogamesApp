@@ -3,13 +3,14 @@ const { Router } = require('express');
 // Ejemplo: const authRouter = require('./auth.js');
 const axios = require ("axios");
 const { Videogame, Genre } = require ('../db.js');
+const {YOUR_API_KEY} = process.env;
 
 const router = Router();
 // 
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
 const getApiInf = async () => {
-    const apiUrl= await axios.get("https://api.rawg.io/api/games?key=1333f6ec622f4a38a30a8d8593c0719b");
+    const apiUrl= await axios.get(`https://api.rawg.io/api/games?key=${YOUR_API_KEY}`);
 
     const apiInf= await apiUrl.data.results.map(el => {
         return {
@@ -63,7 +64,7 @@ router.get("/videogames", async (req,res)=>{
 
 router.get("/genres", async (req,res)=>{
 
-    const genresApi = await axios.get("https://api.rawg.io/api/genres?key=1333f6ec622f4a38a30a8d8593c0719b");
+    const genresApi = await axios.get(`https://api.rawg.io/api/genres?key=${YOUR_API_KEY}`);
     const genresApiInf =  genresApi.data.results.map(el => el.name)
     
     genresApiInf.forEach(el => {
