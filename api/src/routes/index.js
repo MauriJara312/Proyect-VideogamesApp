@@ -20,6 +20,7 @@ const getApiInf = async () => {
             released:el.released,
             rating:el.rating,
             description: el.description,
+            genres: el.genres.map( el => el.name),
             platforms:el.platforms.map(el => el),
         }
     })
@@ -86,7 +87,7 @@ try {
         description,
         released,
         rating,
-        genre,
+        genres,
         platforms,
     } = req.body;
 
@@ -99,7 +100,7 @@ try {
         platforms,
     })
 
-    genre.forEach ( async e => {
+    genres.forEach ( async e => {
       let eachGenre = await Genre.findOne({
             where: { name: e}
         })
