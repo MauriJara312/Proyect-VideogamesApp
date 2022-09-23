@@ -9,10 +9,15 @@ const router = Router();
 // 
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
-const getApiInf = async () => {
-    const apiUrl= await axios.get(`https://api.rawg.io/api/games?key=${YOUR_API_KEY}`);
 
-    const apiInf= await apiUrl.data.results.map(el => {
+
+const getApiInf = async () => {
+
+    const apiUrl= await axios.get(`https://api.rawg.io/api/games?key=${YOUR_API_KEY}`);
+    const apiUrl2= await axios.get(`https://api.rawg.io/api/games?key=${YOUR_API_KEY}&page=2`);
+    const allinfo = await [...apiUrl.data.results , ...apiUrl2.data.results]
+
+    const allinfoo= allinfo.map(el => {
         return {
             id : el.id,
             name : el.name,
@@ -24,7 +29,7 @@ const getApiInf = async () => {
             platforms:el.platforms.map(el => el),
         }
     })
-    return apiInf;
+    return allinfoo;
 };
 
 const getDbInf = async () => {

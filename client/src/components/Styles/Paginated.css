@@ -1,0 +1,14 @@
+
+.Paginated{
+    display: flex;
+    justify-content: center;
+    height: 30px;
+    width: 500px;
+
+ /* border : solid black 1px */
+}
+.PageNumber{
+    list-style: none;
+    /* border : solid black 1px; */
+    margin: 2px;
+}
