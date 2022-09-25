@@ -16,17 +16,20 @@ export default function CreateVideogame () {
       description: "",
       rating: "",
       released: "",
-      img: "",
+      image: "",
       platforms: [],
       genres: [],
     });
+
+    
 
     useEffect(() => {
       dispatch(getAllGenres());
       dispatch(getAllPlatforms());
     }, [dispatch]);
-console.log(input)
-  console.log(platforms)
+
+// console.log(input)
+  // console.log(platforms)
     
   
     function validate(input) {
@@ -55,8 +58,8 @@ console.log(input)
       } else if (input.released.length < 10) {
         error.released = "Date of release is to long";
       }
-      if (!input.img) {
-        error.img = "Image URL is required";
+      if (!input.image) {
+        error.image = "Image URL is required";
       }
   
       if (!input.genres[0]) {
@@ -75,6 +78,9 @@ console.log(input)
         ...input,
         [e.target.name]: e.target.value,
       });
+
+      console.log(input)
+
       setError(
         validate({
           ...input,
@@ -82,7 +88,6 @@ console.log(input)
         })
       );
   
-      console.log(input);
     }
   
     function handleSelectGenres(e) {
@@ -144,7 +149,7 @@ console.log(input)
         description: input.description,
         rating: input.rating,
         released: input.released,
-        img: input.img,
+        image: input.image,
         platforms: input.platforms.join(", "),
         genres: input.genres.join(", "),
       };
@@ -156,14 +161,14 @@ console.log(input)
         description: "",
         rating: "",
         released: "",
-        img: "",
+        image: "",
         platforms: [],
         genres: [],
       });
   
       alert("VideoGame Created");
       history.push("/home");
-    }
+    };
   
     return (
       <div className="containerPadre">
@@ -205,11 +210,11 @@ console.log(input)
               <input
                className="Input"
                 type="text"
-                value={input.img}
-                name="img"
+                value={input.image}
+                name="image"
                 onChange={handleOnChange}
               />
-              {error.img && <span className="red">{error.img}</span>}
+              {error.image && <span className="red">{error.image}</span>}
             </div>
   
             <div>
@@ -253,8 +258,8 @@ console.log(input)
                 <option value="all">All</option>
                 {platforms?.map((e) => {
                   return (
-                    <option key={e.id} value={e.name}>
-                      {e.name}
+                    <option key={e} value={e}>
+                      {e}
                     </option>
                   );
                 })}

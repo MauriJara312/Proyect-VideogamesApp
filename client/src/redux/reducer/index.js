@@ -127,7 +127,7 @@ switch (action.type) {
     case 'GET_ALL_PLATFORMS':
             return{
                 ...state,
-                platforms : action.payload
+                platforms : [...state.platforms, ...action.payload]
             }
 
     default:

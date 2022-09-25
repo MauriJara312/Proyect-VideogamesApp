@@ -114,7 +114,17 @@ try {
 
     });
 
-    res.send("Videogame Created")
+    let videogameCreatedd = {
+        name,
+        image,
+        description,
+        released,
+        rating,
+        platforms,
+    }
+
+    res.send(console.log("Videogame Created"
+    ,videogameCreatedd))
 
 
 }catch(error){
