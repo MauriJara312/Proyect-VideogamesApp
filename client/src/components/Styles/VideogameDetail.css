@@ -1,0 +1,121 @@
+.containerPadre{
+    height: 100vh;
+    width: 100%;
+    /* background: radial-gradient(circle, rgba(126,53,85,1) 0%, rgba(0,0,0,0.9248074229691877) 100%); */
+}
+
+.img{
+    width:'25px'
+}
+
+.header{
+    height: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.1rem;
+}
+
+
+.containerImgDescrep{
+    width: 80%;
+    height: 70vh;
+    display: flex; 
+    /* border: 2px solid green; */
+    flex-wrap: wrap;
+    
+}
+
+
+.containerImg{
+   width: 40%;
+   background-size: cover;
+   background-position: center;
+}
+
+.containerDescrip{
+    background-color: #212121;
+    box-shadow: var(--box_shadow_card);
+    width: 60%;
+
+}
+
+.containerTextDescrip{
+    width: 95%;
+    color: white;
+    background-color: #212121;
+    box-shadow: var(--box_shadow_card);
+    padding: 1rem;
+}
+
+.descriptionText{
+    margin-top: 1rem;
+    text-justify:distribute
+}
+
+.ratingAndReleased{
+    margin-top: 1rem;    
+    display: flex;
+    justify-content: space-between;
+}
+
+/* From uiverse.io */
+.detailButton {
+    --glow-color: rgb(217, 176, 255);
+    --glow-spread-color: rgba(191, 123, 255, 0.781);
+    --enhanced-glow-color: rgb(231, 206, 255);
+    --btn-color: rgb(100, 61, 136);
+    border: .25em solid var(--glow-color);
+    padding: 1em 3em;
+    color: var(--glow-color);
+    font-size: 12px;
+    font-weight: bold;
+    background-color: var(--btn-color);
+    border-radius: 1em;
+    outline: none;
+    box-shadow: 0 0 1em .25em var(--glow-color),
+           0 0 4em 1em var(--glow-spread-color),
+           inset 0 0 .75em .25em var(--glow-color);
+    text-shadow: 0 0 .5em var(--glow-color);
+    position: relative;
+    transition: all 0.3s;
+   }
+   
+   .detailButton::after {
+    pointer-events: none;
+    content: "";
+    position: absolute;
+    top: 120%;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: var(--glow-spread-color);
+    filter: blur(2em);
+    opacity: .7;
+    transform: perspective(1.5em) rotateX(35deg) scale(1, .6);
+   }
+   
+   .detailButton:hover {
+    color: var(--btn-color);
+    background-color: var(--glow-color);
+    box-shadow: 0 0 1em .25em var(--glow-color),
+           0 0 4em 2em var(--glow-spread-color),
+           inset 0 0 .75em .25em var(--glow-color);
+   }
+   
+   .detailButton:active {
+    box-shadow: 0 0 0.6em .25em var(--glow-color),
+           0 0 2.5em 2em var(--glow-spread-color),
+           inset 0 0 .5em .25em var(--glow-color);
+   }
+
+   .tittle{
+    border-bottom: 1px solid white;
+    margin-bottom: 0.5em;
+   }
+
+.center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

@@ -15,7 +15,7 @@ const getApiInf = async () => {
 
     const apiUrl= await axios.get(`https://api.rawg.io/api/games?key=${YOUR_API_KEY}`);
     const apiUrl2= await axios.get(`https://api.rawg.io/api/games?key=${YOUR_API_KEY}&page=2`);
-    const allinfo = await [...apiUrl.data.results , ...apiUrl2.data.results]
+    const allinfo = [...apiUrl.data.results , ...apiUrl2.data.results]
 
     const allinfoo= allinfo.map(el => {
         return {
@@ -128,7 +128,7 @@ router.get("/videogame/:id", async ( req, res ) => {
     const allVideogames = await getAllInf()
 
     if (id){
-        let videogameId = await allVideogames.filter(el => el.id == id )
+        let videogameId = allVideogames.filter(el => el.id == id )
     
 
         videogameId.length?
@@ -136,5 +136,21 @@ router.get("/videogame/:id", async ( req, res ) => {
         res.status(404).send("The videogame does not exists")
     }
     })
+
+router.get('/platforms', async (req, res)=> {
+    const allplatforms = await axios.get(`https://api.rawg.io/api/platforms?key=${YOUR_API_KEY}`)
+    const apiPlatf = await allplatforms.data.results.map(el => el.name)
+    // apiPlatf.forEach( el => {
+    //     Platform.findOrCreate({
+    //         where : {
+    //             name: el
+    //         }
+    //     })
+    // });
+    // const allPlatf = await Platform.findAll();
+    // res.status(200).send(allPlatf)
+    res.status(200).send(apiPlatf)
+})   
+
 
 module.exports = router;

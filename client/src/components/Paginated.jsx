@@ -9,19 +9,23 @@ export default function Paginated ({ videogamesPerPage, allVideogames, paginated
     }
 
     return(
-        <nav>
-            <ul className="Paginated" >
-                {
-                    pageNumbers?.map( (pageNumber) => {
-                        return(
-                            <li className="PageNumber" key={pageNumber}>
-                                <button  onClick={()=> paginated(pageNumber)}>{pageNumber}</button>
-                            </li>
+    
+    <nav>
 
-                        )
-                    })
-                }
-            </ul>
-        </nav>
-    )
+    <ul className="Paginated" >
+        
+    {
+    pageNumbers?.map( (pageNumber) => {
+            
+    return(
+    <li className="PageNumber" key={pageNumber}>
+    <button  onClick={()=> paginated(pageNumber)}>{pageNumber}</button>
+    </li>
+
+        )
+        })
+    }
+    </ul>
+    </nav>
+)   
 }

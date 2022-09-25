@@ -5,7 +5,10 @@ const initialState = {
     allvideogames : [],
     videogames : [],
     videogame : {},
-    genres : []
+    videogameDetails:[],
+    platforms : [],
+    genres : [],
+    
 }
 
 
@@ -17,15 +20,15 @@ switch (action.type) {
             ...state,
             videogames:action.payload,
             allvideogames:action.payload,
-        }
+            }
   
-    case 'GET_ALL_GENRES':
+    case "GET_ALL_GENRES":
         return {
             ...state,
             genres: action.payload
             }
 
-    case 'FILTER_BY_GENRE':
+    case "FILTER_BY_GENRE":
 
         if (action.payload === "all"){
         
@@ -42,9 +45,9 @@ switch (action.type) {
             ...state,
             videogames: state.videogames
         }
-    }
+            }
             
-        case 'FILTER_BY_RATING':
+    case "FILTER_BY_RATING":
             let sorted = action.payload === "up" ?
                 state.allvideogames.sort((a, b) => {
                     if (a.rating > b.rating) {
@@ -71,7 +74,7 @@ switch (action.type) {
                 videogames: sorted
             }
 
-        case 'FILTER_BY_ABC':
+    case "FILTER_BY_ABC":
             let abcsorted = action.payload === 'A - Z' ?
             state.allvideogames.sort(( a, b ) => {
                 if(a.name > b.name) {
@@ -96,7 +99,7 @@ switch (action.type) {
                 videogames : abcsorted
             }
 
-            case "FILTER_BY_CREATED":
+    case "FILTER_BY_CREATED":
 
                 const filteredBySource = action.payload === "db" ?
                 state.allvideogames.filter(e => e.createInDb) 
@@ -104,12 +107,33 @@ switch (action.type) {
                 return{
                     ...state,
                     videogames: filteredBySource,
-                }
+            }
 
+    case "GET_VIDEOGAME_BY_NAME":
 
-        default:
-            return state;
+    // let name = action.payload === '' ? state.allvideogames : state.allvideogames.filter(e => e.name.toLowerCase().includes(action.payload.toLowerCase()))
+    
+        return{
+            ...state,
+            videogames: action.payload
+            }
+
+    case "GET_DETAILS":
+            return{
+                ...state,
+                videogameDetails: action.payload
+            }
+
+    case 'GET_ALL_PLATFORMS':
+            return{
+                ...state,
+                platforms : action.payload
+            }
+
+    default:
+        return state;
 }
+
 
 
 }

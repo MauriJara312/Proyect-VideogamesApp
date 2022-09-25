@@ -1,11 +1,13 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getVideogames, getAllGenres, videogameFilterByGenre, filterByRating, filterByAbc, filterByCreated} from "../redux/actions";
+import { getVideogames, getAllGenres, filterByGenre, filterByRating, filterByAbc, filterByCreated} from "../redux/actions";
 import {Link} from "react-router-dom"
 import VideogameCard from "./VideogameCard";
 import Paginated from "./Paginated";
 import "./Styles/Home.css"
+import Searchbar from "./Searchbar";
+import NavBar from "./NavBar";
 
 export default function Home(){
 
@@ -31,6 +33,8 @@ const paginated = (pageNumber) => {
     setCurrentPage(pageNumber)
 }
 
+// Traigo los estados globales
+
 useEffect(() => {
     dispatch(getAllGenres());
   }, [dispatch]);
@@ -39,7 +43,7 @@ useEffect(()=>{
     dispatch(getVideogames());
 },[dispatch])
 
-function handleClick(e){
+function reloadVideogames(e){
 e.preventDefault();
 dispatch(getVideogames())
 }
@@ -56,7 +60,7 @@ function changeSource(e){
 
 function changeGenre(e){
     e.preventDefault();
-    dispatch(videogameFilterByGenre(e.target.value))
+    dispatch(filterByGenre(e.target.value))
 }
 
 // Abc Filter
@@ -82,11 +86,9 @@ function changeRating(e) {
 return(
     <div className="HomeContainer">
 
-    <Link to= "/videogame">Add Videogame</Link> 
-
     <h1 className="a" >Videogames</h1> 
 
-    <button onClick={e=> {handleClick(e)}} >Reload Videogames</button>
+    <button onClick={e=> {reloadVideogames(e)}} >Reload Videogames</button>
 
     <div className="ratingAndAbcFilters">
         <select onChange={e=> {changeRating(e) }}>
@@ -100,6 +102,7 @@ return(
              <option value = "A - Z" >A - Z</option>
 |            <option value = "Z - A" >Z - A</option>
         </select>
+        
     <div className="sourceAndGenresFilters">
 
         <select onChange={e=> {changeGenre(e) }} >
@@ -125,11 +128,15 @@ return(
 
 <div className="paginatedDiv">
     
+
         <Paginated 
         videogamesPerPage={videogamesPerPage}
         allVideogames={allVideogames.length}
         paginated={paginated} 
         />
+
+        <Searchbar/>
+
 </div>
 
  <div className="allVideogames">
@@ -140,7 +147,7 @@ return(
 
                 <Link to = {"/home/"+el.id}>
 
-                <VideogameCard name={el.name} genres={el.genres} image={el.image} key={el.id}/>
+                <VideogameCard name={el.name} genres={el.genres} image={el.image? el.image : <img src="client\src\noimg.jpg"></img>} key={el.id}/>
 
                 </Link>
 
