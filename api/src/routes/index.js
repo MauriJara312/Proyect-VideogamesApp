@@ -150,7 +150,7 @@ router.get("/videogame/:id", async ( req, res ) => {
         res.status(200).json(videogameId):
         res.send("The videogame does not exists")
     }
-    })
+})
 
 router.get('/platforms', async (req, res)=> {
     const allplatforms = await axios.get(`https://api.rawg.io/api/platforms?key=${YOUR_API_KEY}`)

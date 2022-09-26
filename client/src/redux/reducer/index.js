@@ -48,7 +48,7 @@ switch (action.type) {
             }
             
     case "FILTER_BY_RATING":
-            let sorted = action.payload === "up" ?
+            let sorted = action.payload === "down" ?
                 state.allvideogames.sort((a, b) => {
                     if (a.rating > b.rating) {
                         return 1;

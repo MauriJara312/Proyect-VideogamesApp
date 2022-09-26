@@ -25,7 +25,6 @@ export default function Searchbar(setCurrentPage){
         e.preventDefault();
         dispatch(getVideogameByName(name))
         setname("")
-
     }
 
 
