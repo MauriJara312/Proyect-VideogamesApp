@@ -145,11 +145,10 @@ router.get("/videogame/:id", async ( req, res ) => {
 
     if (id){
         let videogameId = allVideogames.filter(el => el.id == id )
-    
 
         videogameId.length?
         res.status(200).json(videogameId):
-        res.status(404).send("The videogame does not exists")
+        res.send("The videogame does not exists")
     }
     })
 

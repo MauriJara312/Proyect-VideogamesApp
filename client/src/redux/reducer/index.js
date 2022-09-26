@@ -121,7 +121,7 @@ switch (action.type) {
     case "GET_DETAILS":
             return{
                 ...state,
-                videogameDetails: action.payload
+                videogameDetails: action.payload,
             }
 
     case 'GET_ALL_PLATFORMS':

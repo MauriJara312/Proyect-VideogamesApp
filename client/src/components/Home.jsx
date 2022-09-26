@@ -91,7 +91,7 @@ return(
 
 <div className="HomeContainer"> 
 
-    <NavBar></NavBar>
+    <NavBar setCurrentPage={setCurrentPage}></NavBar>
 
     {/* <button onClick={e=> {reloadVideogames(e)}} >Reload Videogames</button> */}
 

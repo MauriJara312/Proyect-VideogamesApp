@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Searchbar from "./Searchbar";
 
-export default function NavBar(){
+export default function NavBar(setCurrentPage){
 
     return(
         <div className="container">
@@ -18,10 +18,8 @@ export default function NavBar(){
 
             </div>
 
+<Searchbar setCurrentPage={setCurrentPage}/>
 
-
-
-<Searchbar/>
         </div>
     )
 }

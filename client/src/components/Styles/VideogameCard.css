@@ -1,4 +1,8 @@
+*{
+    text-decoration: none;
+}
 .cardContainer {
+    
     border: solid #b33939 1px;
     width: 260px;
     height: 370px;

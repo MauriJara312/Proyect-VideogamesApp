@@ -14,17 +14,19 @@ export default function VideogameDetail (props) {
 
   const videogame = useSelector((state) => state.videogameDetails);
 
+  console.log(videogame)
+
   return (
     <div className="containerPadre">
       {videogame.length > 0 ? (
-        <div className="container1">
+        <div>
           <div className="header">
             <Link to='/home'>
             <button className="detailButton">Back Home</button>
             </Link>
           </div>
 
-          <div className="center">
+          <div >
 
           <div className="containerImgDescrep">
             <div
@@ -36,10 +38,10 @@ export default function VideogameDetail (props) {
             <div className="containerDescrip">
               <div className="containerTextDescrip">
                <h1 className="tittle">{videogame[0].name}</h1>
-               <p>{videogame[0].platform ? videogame[0].platform : videogame[0].platforms} | {videogame[0].genres ? videogame[0].genres : videogame[0].Genres.map(e=> e.name).join(', ')} </p>
+               <p>{videogame[0].platforms.map(e=> e.name).join(', ')} {videogame[0].genres.map(e=> e.name).join(', ')} </p>
                <div className="descriptionText" ><p>{videogame[0].description}</p></div>
                <div className="ratingAndReleased">
-                <span><img className="img" src={videogame.img} alt="" /> {videogame[0].rating}</span>
+                <span><img className="img" src={videogame.image} alt="" /> {videogame[0].rating}</span>
                 <span> {videogame[0].released}</span>
                </div>
               </div>
