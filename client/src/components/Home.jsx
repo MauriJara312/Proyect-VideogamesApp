@@ -8,6 +8,7 @@ import Paginated from "./Paginated";
 import "./Styles/Home.css"
 import Searchbar from "./Searchbar";
 import NavBar from "./NavBar";
+import Loading from "./loading";
 
 export default function Home(){
 
@@ -83,84 +84,108 @@ function changeRating(e) {
       setOrder(`Order ${e.target.value}`)
   }
 
+//////////////////////////RENDER///////////////////////////////////
+
+
 return(
-    <div className="HomeContainer">
 
-    <h1 className="a" >Videogames</h1> 
+<div className="HomeContainer"> 
 
-    <button onClick={e=> {reloadVideogames(e)}} >Reload Videogames</button>
+    <NavBar></NavBar>
 
-    <div className="ratingAndAbcFilters">
-        <select onChange={e=> {changeRating(e) }}>
-            <option value = "all" >All Ratings</option>
-            <option value = "up" >High Rating</option>
-|            <option value = "down" >Low Rating</option>
-        </select>
-
-        <select onChange={e=> {changeAbc(e)}}>
-             <option value = "default" >Default Order</option>
-             <option value = "A - Z" >A - Z</option>
-|            <option value = "Z - A" >Z - A</option>
-        </select>
-        
-    <div className="sourceAndGenresFilters">
-
-        <select onChange={e=> {changeGenre(e) }} >
-        <option value = "all" >All Genres</option>
-        {
-        genre?.map((e)=>{
-            return (
-                <option value = {e.name} >{e.name}</option>
-            )})}
-
-        </select>
-
-        <select onChange={e=> {changeSource(e) }}>
-            <option value = "all" >All Videogames</option>
-            <option value = "api" >Api Videogames</option>
-            <option value = "db" >DB Videogames</option>
-        </select>
-
-</div>
-
- 
-{/* Renderizo el componente Paginated pasandole mi estado*/}
+    {/* <button onClick={e=> {reloadVideogames(e)}} >Reload Videogames</button> */}
 
 <div className="paginatedDiv">
     
-
         <Paginated 
         videogamesPerPage={videogamesPerPage}
         allVideogames={allVideogames.length}
         paginated={paginated} 
         />
-
-        <Searchbar/>
+        
 
 </div>
 
- <div className="allVideogames">
-{
+ <div className="containerCards">
+{   currentVideogames.length>0?
     currentVideogames?.map((el)=>{
         return (
-            <div className="VideogameCard">
+            <div>
 
-                <Link to = {"/home/"+el.id}>
+                <Link to = {"/videogame/"+el.id}>
 
-                <VideogameCard name={el.name} genres={el.genres} image={el.image? el.image : <img src="client\src\noimg.jpg"></img>} key={el.id}/>
+                <VideogameCard name={el.name} genres={el.genres} rating={el.rating} image={el.image? el.image : <img src="client\src\noimg.jpg"></img>} key={el.id}/>
 
                 </Link>
 
             </div>
           
-
-        )
+        );
     })
+    :<Loading/>
 }
-</div>
     </div>
- 
-    </div>
-)
 
-}
+{/* //////////////////////////filters///////////////////////////////// */}
+
+<div className="filters">
+
+<h4 className="underline">Filters</h4>
+
+<div className="aligns">
+
+<p>Genres:</p>
+
+    <select onChange={e=> {changeGenre(e) }} >
+    <option value = "all" >All Genres</option>
+    {
+    genre?.map((e)=>{
+        return (
+            <option value = {e.name} >{e.name}</option>
+        )})}
+
+    </select>
+
+
+<p>Source:</p>
+
+    <select className="options" onChange={e=> {changeSource(e) }}>
+                <option value = "all" >All Videogames</option>
+                <option value = "api" >Api Videogames</option>
+                <option value = "db" >DB Videogames</option>
+    </select>
+
+<div className="sortingContainer">
+
+<h5 className="underline">Sorting</h5>
+
+<div className="aligns">
+
+<p>Rating:</p>
+
+    <select  className="options" onChange={e=> {changeRating(e) }}>
+        <option value = "all" >All Ratings</option>
+        <option value = "up" >High Rating</option>
+|            <option value = "down" >Low Rating</option>
+    </select>
+
+
+</div>
+
+<p>Alphabetical Order:</p>
+
+    <select className="options" onChange={e=> {changeAbc(e)}}>
+         <option value = "default" >Default Order</option>
+         <option value = "A - Z" >A - Z</option>
+|            <option value = "Z - A" >Z - A</option>
+    </select>
+
+
+</div>
+</div>
+
+</div>
+
+/</div>
+
+)}

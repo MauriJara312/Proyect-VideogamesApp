@@ -1,8 +1,9 @@
 import React, {useState, useEffect} from "react";
-import {useHistory} from 'react-router-dom';
+import {Link, useHistory} from 'react-router-dom';
 import {postVideoGame , getAllGenres, getVideogames, getAllPlatforms} from "../redux/actions/index"
 import {useDispatch, useSelector} from "react-redux";
 import "./Styles/CreateVideogame.css"
+import NavBar from "./NavBar";
 
 export default function CreateVideogame () {
     const dispatch = useDispatch();
@@ -171,8 +172,12 @@ export default function CreateVideogame () {
     };
   
     return (
+
       <div className="containerPadre">
+
+
         <div className="subContainer">
+        <Link className="link" to="/home">HOME</Link>
   
           <div className="firstContainerForm">
   
@@ -181,7 +186,7 @@ export default function CreateVideogame () {
           <h1 className="title">Add your videogame</h1>
           <form className="form" onSubmit={(e) => handleSubmit(e)}>
             <div>
-              <p>Name:</p>
+              <p className="subtitle">Name:</p>
               <input
               className="Input"
                 type="text"
@@ -194,7 +199,7 @@ export default function CreateVideogame () {
   
   
             <div>
-              <p>Released:</p>
+              <p className="subtitle">Released:</p>
               <input
                className="Input"
                 type="date"
@@ -206,7 +211,7 @@ export default function CreateVideogame () {
             </div>
   
             <div>
-              <p>ImageUrl:</p>
+              <p className="subtitle">ImageUrl:</p>
               <input
                className="Input"
                 type="text"
@@ -218,7 +223,7 @@ export default function CreateVideogame () {
             </div>
   
             <div>
-              <p>Rating:</p>
+              <p className="subtitle">Rating:</p>
               <input
                className="Input"
                 type="number"
@@ -229,7 +234,7 @@ export default function CreateVideogame () {
               {error.rating && <span className="red">{error.rating}</span>}
             </div>
             <div>
-              <p>Genres</p>
+              <p className="subtitle">Genres</p>
               <select  className="Input" onChange={(e) => handleSelectGenres(e)}>
                 <option value="all">All</option>
                 {genres?.map((e) => {
@@ -253,7 +258,7 @@ export default function CreateVideogame () {
               })}{" "}
             </div>
             <div>
-              <p>Platforms</p>
+              <p className="subtitle">Platforms</p>
               <select  className="Input" onChange={(e) => handleSelectPlatform(e)}>
                 <option value="all">All</option>
                 {platforms?.map((e) => {
@@ -279,7 +284,7 @@ export default function CreateVideogame () {
               })}
             </div>
             <div>
-              <p>Description:</p>
+              <p className="subtitle">Description:</p>
               <textarea
                 className="textArea"
                 type="text"

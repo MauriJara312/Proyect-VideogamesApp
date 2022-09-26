@@ -8,6 +8,7 @@
 }
 
 .spinner {
+    
     height: 50px;
     width: max-content;
     font-size: 18px;
@@ -22,6 +23,9 @@
    }
    
    .spinner span {
+    
+    font-weight: 900;
+    color :red;
     animation: loading6454 1.75s ease infinite;
    }
    

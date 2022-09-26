@@ -1,0 +1,6 @@
+.a {
+    border: solid green 1px;
+    display:flex;
+    height: 40px;
+    flex-direction: row;
+}

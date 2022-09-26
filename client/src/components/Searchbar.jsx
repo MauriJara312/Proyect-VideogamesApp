@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { getVideogameByName } from "../redux/actions";
-
+import "./Styles/NavBar.css"
 
 export default function Searchbar({setCurrentPage}){
 
@@ -26,7 +26,7 @@ export default function Searchbar({setCurrentPage}){
 
 
     return(
-        <div>
+        <div className="a">
             <input type={"text"} placeholder="Search..." onChange={(e)=> {handleChange(e) }} />
 
             <button type="submit" onSubmit={(e)=> {searchGame(e) }} >Search</button>

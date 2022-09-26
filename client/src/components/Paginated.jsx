@@ -10,16 +10,16 @@ export default function Paginated ({ videogamesPerPage, allVideogames, paginated
 
     return(
     
-    <nav>
+    <nav className="containerPadre">
 
-    <ul className="Paginated" >
+    <ul className="nums" >
         
     {
     pageNumbers?.map( (pageNumber) => {
             
     return(
     <li className="PageNumber" key={pageNumber}>
-    <button  onClick={()=> paginated(pageNumber)}>{pageNumber}</button>
+    <button className="button" onClick={()=> paginated(pageNumber)}>{pageNumber}</button>
     </li>
 
         )

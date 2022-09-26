@@ -39,7 +39,7 @@ export default function VideogameDetail (props) {
                <p>{videogame[0].platform ? videogame[0].platform : videogame[0].platforms} | {videogame[0].genres ? videogame[0].genres : videogame[0].Genres.map(e=> e.name).join(', ')} </p>
                <div className="descriptionText" ><p>{videogame[0].description}</p></div>
                <div className="ratingAndReleased">
-                <span><img className="img" src="https://i.ibb.co/xSfqgcG/star.png" alt="" /> {videogame[0].rating}</span>
+                <span><img className="img" src={videogame.img} alt="" /> {videogame[0].rating}</span>
                 <span> {videogame[0].released}</span>
                </div>
               </div>

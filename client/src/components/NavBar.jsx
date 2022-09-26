@@ -5,10 +5,21 @@ import Searchbar from "./Searchbar";
 export default function NavBar(){
 
     return(
-        <div>
-<Link to="home">Home</Link>
+        <div className="container">
+            <div className="separate">
+                
+                    <div className="container1">
 
-<Link to= "/videogame">Add Videogame</Link> 
+<Link className="link" to="home"><span>Home</span></Link>
+
+<Link className="link" to= "/videogame"><span>Add Videogame</span></Link> 
+
+                    </div>
+
+            </div>
+
+
+
 
 <Searchbar/>
         </div>

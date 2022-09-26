@@ -15,7 +15,13 @@ const getApiInf = async () => {
 
     const apiUrl= await axios.get(`https://api.rawg.io/api/games?key=${YOUR_API_KEY}`);
     const apiUrl2= await axios.get(`https://api.rawg.io/api/games?key=${YOUR_API_KEY}&page=2`);
-    const allinfo = [...apiUrl.data.results , ...apiUrl2.data.results]
+    const apiUrl3= await axios.get(`https://api.rawg.io/api/games?key=${YOUR_API_KEY}&page=3`);
+    const apiUrl4= await axios.get(`https://api.rawg.io/api/games?key=${YOUR_API_KEY}&page=4`);
+    const apiUrl5= await axios.get(`https://api.rawg.io/api/games?key=${YOUR_API_KEY}&page=5`);
+
+
+
+    const allinfo = [...apiUrl.data.results , ...apiUrl2.data.results, ...apiUrl3.data.results, ...apiUrl4.data.results, ...apiUrl5.data.results]
 
     const allinfoo= allinfo.map(el => {
         return {

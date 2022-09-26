@@ -1,5 +1,109 @@
-.videogameDiv{
-    width: 300px;
-    height: 400px;
-    border: solid black 1px;
+.cardContainer {
+    border: solid #b33939 1px;
+    width: 260px;
+    height: 370px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    place-content: center;
+    place-items: center;
+    overflow: hidden;
+    background-color: #212121;
+    box-shadow: 15px 15px 30px #bebebe,
+             -15px -15px 30px #ffffff;
+    border-radius: 20px;
+    box-shadow: var(--box_shadow_card);
+}
+
+
+/* From uiverse.io by @alexruix */
+.card {
+    
+    width: 12rem;
+    height: auto;
+    padding: .8em;
+
+    display: flex;
+    color: white;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+   
+   }
+   
+   .cardImg {
+    border: solid #b33939 1px;
+    background-color: #ffcaa6;
+    height:8rem;
+    width: 100%;
+    border-radius: .5rem;
+    transition: .3s ease;
+   }
+
+    .star{
+
+    width:20px;
+
+     padding:0.4rem;
+
+   }
+   
+   .cardInfo {
+    
+    width: 100%;
+    height: 5rem;
+   }
+   
+   
+   .cardFooter {
+    width: 100%;
+    display: flex;
+    /* justify-content: space-between;
+    align-items: center; */
+    padding-top: 10px;
+    border-top: 1px solid #ddd;
+
+   }
+   
+   /*Text*/
+   .textTitle {
+    justify-content: center;
+    font-weight: 900;
+    font-size: 1.2em;
+    line-height: 1.5;
+    color: #b33939;
+   }
+   
+   .textBody {
+    font-size: .9em;
+    padding-bottom: 10px;
+    color: #b33939;
+   }
+   
+   /*Button*/
+  
+   
+   /*Hover*/
+   /* .cardImg:hover {
+    transform: translateY(-25%);
+    box-shadow: rgba(226, 196, 63, 0.25) 0px 13px 47px -5px, rgba(180, 71, 71, 0.3) 0px 8px 16px -8px;
+   } */
+
+.ratybuton{
+    justify-content: center;
+    
+    /* border: solid green 1px; */
+    
+}
+
+.cardButton{
+    background-color:#FBCA1F;
+    color: black;
+    /* border: 2px solid red; */
+    border-radius: 10px;
+    width: 100px;
+    font-weight: 900;
 }
