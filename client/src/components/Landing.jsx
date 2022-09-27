@@ -7,9 +7,9 @@ export default function LandingPage(){
         <div className="landing">
 
             <div className="tittle">
-            <h1 >Welcome</h1>
+            <h1 >VIDEOGAMES APP</h1>
             <Link to ="/home">
-                <button className="button">Go in</button>
+                <button className="button">START</button>
             </Link>
             </div>
             
