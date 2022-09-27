@@ -34,6 +34,7 @@ const paginated = (pageNumber) => {
     setCurrentPage(pageNumber)
 }
 
+
 // Traigo los estados globales
 
 useEffect(() => {

@@ -17,39 +17,30 @@ export default function VideogameDetail (props) {
   console.log(videogame)
 
   return (
-    <div className="containerPadre">
-      {videogame.length > 0 ? (
-        <div>
-          <div className="header">
-            <Link to='/home'>
-            <button className="detailButton">Back Home</button>
+<div className="firstContainer" key={videogame.id}>
+            {   
+                
+                videogame?
+                
+                <div className="detailContainer" key={videogame.id}>
+                    <img className ="gameImg" src={videogame.image} alt="File Not Found" width="300px" hight="300px"/>
+                    <div className ="gameDetail" key={videogame.id}>
+                        <h1>{videogame.name}</h1>
+                        <p><strong>Released: </strong>{videogame.released}</p>
+                        <div className="ratingDetail"><strong>Rating: </strong><p className="ratingDetails">{videogame.rating}</p></div>
+                        <div className="detailPlatform"><strong>Platforms: </strong>{videogame.platforms}</div>
+                        <p><strong>Genre: </strong>{videogame.genres}</p>
+                        <div><strong>Sinopsis: </strong><p>{videogame.description}</p></div>
+                    </div>
+             
+                </div>
+                  : <Loading/>
+            }   
+
+            <Link to="/home">
+                <button className="backBtnDetail">Back</button>
             </Link>
-          </div>
 
-          <div >
-
-          <div className="containerImgDescrep">
-            <div
-              style={{
-                backgroundImage: `url(${videogame[0].img})`,
-              }}
-              className="containerImg"
-            ></div>
-            <div className="containerDescrip">
-              <div className="containerTextDescrip">
-               <h1 className="tittle">{videogame[0].name}</h1>
-               <p>{videogame[0].platforms.map(e=> e.name).join(', ')} {videogame[0].genres.map(e=> e.name).join(', ')} </p>
-               <div className="descriptionText" ><p>{videogame[0].description}</p></div>
-               <div className="ratingAndReleased">
-                <span><img className="img" src={videogame.image} alt="" /> {videogame[0].rating}</span>
-                <span> {videogame[0].released}</span>
-               </div>
-              </div>
             </div>
-          </div>
-        </div>
-          </div>
-      ) : <Loading/>}
-    </div>
   );
 }

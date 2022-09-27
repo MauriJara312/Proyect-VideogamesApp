@@ -111,7 +111,7 @@ try {
         platforms,
     })
 
-    genres.forEach ( async e => {
+    genres?.forEach ( async e => {
       let eachGenre = await Genre.findOne({
             where: { name: e}
         })
@@ -140,15 +140,42 @@ try {
 });
 
 router.get("/videogame/:id", async ( req, res ) => {
-    const id = req.params.id;
-    const allVideogames = await getAllInf()
+    const {id} = req.params;
+   
+    if(id.length > 9){
+      let dbGameInfo = await Videogame.findOne({
+        where:{ id: id},
+        include: Genre
+      })
+    
+      let gameDb ={
+        image: dbGameInfo.image,
+        name: dbGameInfo.name,
+        released: dbGameInfo.released,
+        rating: dbGameInfo.rating,
+        platforms: dbGameInfo.platforms,
+        genres: dbGameInfo.genres?.map(e => e.name),
+        description: dbGameInfo.description
 
-    if (id){
-        let videogameId = allVideogames.filter(el => el.id == id )
+      }
+      res.send(gameDb)
+      
+    }
 
-        videogameId.length?
-        res.status(200).json(videogameId):
-        res.send("The videogame does not exists")
+    else{
+      const videoGameInfoId = await axios.get(`https://api.rawg.io/api/games/${id}?key=${YOUR_API_KEY}`);
+      let gameDetail ={
+        image: videoGameInfoId.data.background_image,
+        name: videoGameInfoId.data.name,
+        released: videoGameInfoId.data.released,
+        rating: videoGameInfoId.data.rating,
+        platforms: videoGameInfoId.data.platforms.map(e => e.platform.name),
+        genres: videoGameInfoId.data.genres.map(e => e.name),
+        description: videoGameInfoId.data.description,
+        website: videoGameInfoId.data.website,
+      }
+        res.status(200).json(gameDetail)
+        
     }
 })
 

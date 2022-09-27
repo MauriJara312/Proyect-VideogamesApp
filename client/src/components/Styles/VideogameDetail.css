@@ -1,95 +1,82 @@
 
-
-.containerPadre{
+.firstContainer{
     height: 100vh;
-    width: 100%;
-    }
-
-.header{
-    height: 4rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0.1rem;
-    
+    margin-bottom: 10rem;
 }
 
-
-.containerImgDescrep{
-    width: 1500px;
-    height: 80vh;
-    display: flex; 
-    /* border: 2px solid green; */
+.detailContainer{
+    display: flex;
     flex-wrap: wrap;
-    border: solid red 1px;
-}
-
-
-.containerImg{
+    padding-top: 3rem;
     
-    
-   width: 40%;
-   background-size: cover;
-   background-position: center;
-}
-
-.containerDescrip{
-    background-color: #212121;
-    box-shadow: var(--box_shadow_card);
-    width: 60%;
-
-}
-
-.containerTextDescrip{
-    
-    width: 95%;
-    color: white;
-    background-color: #212121;
-    box-shadow: var(--box_shadow_card);
-    padding: 1rem;
-}
-
-.descriptionText{
-    margin-top: 1rem;
-    text-justify:distribute
-}
-
-.ratingAndReleased{
-    
-    margin-top: 1rem;    
-    display: flex;
-    justify-content: space-between;
-}
-
-/* From uiverse.io */
-.detailButton {
-    background: #b33939;
-    font-family: inherit;
-    padding: 0.1em 1em;
-    font-weight: 900;
-    font-size: 15px;
-    border: 2px solid black;
-    border-radius: 0.4em;
-    box-shadow: 0.1em 0.1em;
-   }
    
-   .detailButton:hover {
-    color: var(--btn-color);
-    background-color: var(--glow-color);
-    box-shadow: 0 0 1em .25em var(--glow-color),
-           0 0 4em 2em var(--glow-spread-color),
-           inset 0 0 .75em .25em var(--glow-color);
-   }
-
-   .tittle{
-    
-    border-bottom: 1px solid white;
-    margin-bottom: 0.5em;
-   }
-
-.center{
-    
-    display: flex;
+   justify-content: center;
+    color: aliceblue;
+}
+.gameImg{
+    width: 700px;
+    height: 500px;
+    border-radius: 10px;
+    margin-top: 80px;
+    margin-right: 60px;
+}
+.gameDetail{
+   
     align-items: center;
+    max-width: 600px;
+    margin-left: 40px;
+
+}
+.ratingDetails{
+    border:solid rgb(101, 166, 3);
+    color: rgb(101, 166, 3);
+    height: 25px;
+    width: 50px;
+    margin-left: 10px;
+    
+}
+.ratingDetail{
+    display: flex;
     justify-content: center;
+    align-items: center;
+    height: 30px;
+    
+}
+.detailPlatform{
+    margin-top: 5px;
+}
+
+.backBtnDetail {
+    margin-top: 5rem;
+    padding: 13px 30px;
+    border-radius: 10px;
+    border: 0;
+    background-color: white;
+    box-shadow: rgb(0 0 0 / 5%) 0 0 8px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-size: 15px;
+    transition: all .5s ease;
+}
+   
+.backBtnDetail:hover {
+    letter-spacing: 3px;
+    background-color:rgb(101, 166, 3);
+    color: hsl(0, 0%, 100%);
+    box-shadow: rgb(101, 166, 3) 0px 7px 29px 0px;
+}
+   
+.backBtnDetail:active {
+    letter-spacing: 3px;
+    background-color: rgb(101, 166, 3);
+    color: hsl(0, 0%, 100%);
+    box-shadow: rgb(101, 166, 3) 0px 0px 0px 0px;
+    transform: translateY(10px);
+    transition: 100ms;
+}
+.loadingDetail{
+    display: flex;
+    justify-content: center;
+    color: rgb(239, 239, 242);
+    font-size: 5rem;
 }
