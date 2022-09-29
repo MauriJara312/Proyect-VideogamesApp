@@ -172,17 +172,43 @@ router.get("/videogame/:id", async ( req, res ) => {
 router.get('/platforms', async (req, res)=> {
     const allplatforms = await axios.get(`https://api.rawg.io/api/platforms?key=${YOUR_API_KEY}`)
     const apiPlatf = await allplatforms.data.results.map(el => el.name)
-    // apiPlatf.forEach( el => {
-    //     Platform.findOrCreate({
-    //         where : {
-    //             name: el
-    //         }
-    //     })
-    // });
-    // const allPlatf = await Platform.findAll();
-    // res.status(200).send(allPlatf)
     res.status(200).send(apiPlatf)
 })   
+
+
+
+//pruebas
+
+//actualizar por id
+
+// router.put('/:id',async(req,res) => {
+
+//     const { name } = req.body;
+//     const id = req.params.id; 
+
+//     try {                                  
+//        const updated = await Videogame.update({name},{
+//            where: { id: id },
+//        })
+//        res.status(201).send(updated);
+//     } catch (error) {
+//         throw error
+//     }
+// })
+
+// eliminar por id
+
+// router.delete('/:id',async(req,res) => {
+
+//    const { id } = req.params
+//        try {
+//            const destroyedVideogame = await Videogame.destroy({where: {id: id}})
+//            res.send(200)
+//         } catch (error) {
+//             throw error
+//         }
+   
+// })
 
 
 module.exports = router;
