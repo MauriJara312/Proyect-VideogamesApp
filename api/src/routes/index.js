@@ -90,7 +90,7 @@ router.get("/genres", async (req,res)=>{
     res.send(allGenres);
 })
 
-router.post("/videogames", async ( req , res )=>{
+router.post("/videogame", async ( req , res )=>{
 try {
     let {
         name,
@@ -120,17 +120,7 @@ try {
 
     });
 
-    let videogameCreatedd = {
-        name,
-        image,
-        description,
-        released,
-        rating,
-        platforms,
-    }
-
-    res.send(console.log("Videogame Created"
-    ,videogameCreatedd))
+    res.send(console.log("Videogame Created"))
 
 
 }catch(error){

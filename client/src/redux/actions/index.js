@@ -77,9 +77,10 @@ export function getVideogameByName(name){
 }
 
 export function postVideoGame(payload){
-    return async function(dispatch){
-        const response = await axios.post(`/videogame`, payload)
-        return response;
+    return async function () {
+        const createPost = await axios.post('http://localhost:3001/videogame/', payload);
+        console.log(createPost);
+        return createPost;
     }
 }
 

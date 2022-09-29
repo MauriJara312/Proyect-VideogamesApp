@@ -27,7 +27,7 @@ export default function CreateVideogame () {
     useEffect(() => {
       dispatch(getAllGenres());
       dispatch(getAllPlatforms());
-    }, [dispatch]);
+    }, []);
 
 // console.log(input)
   // console.log(platforms)
@@ -143,17 +143,17 @@ export default function CreateVideogame () {
     function handleSubmit(e) {
       e.preventDefault();
   
-      let create = {
-        name: input.name,
-        description: input.description,
-        rating: input.rating,
-        released: input.released,
-        image: input.image,
-        platforms: input.platforms.join(", "),
-        genres: input.genres.join(", "),
-      };
+      // let create = {
+      //   name: input.name,
+      //   description: input.description,
+      //   rating: input.rating,
+      //   released: input.released,
+      //   image: input.image,
+      //   platforms: input.platforms.join(", "),
+      //   genres: input.genres.join(", "),
+      // };
   
-      dispatch(postVideoGame(create));
+      dispatch(postVideoGame(input))
   
       setInput({
         name: "",

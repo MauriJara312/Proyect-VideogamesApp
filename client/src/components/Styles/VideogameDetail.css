@@ -61,16 +61,16 @@
    
 .backBtnDetail:hover {
     letter-spacing: 3px;
-    background-color:rgb(101, 166, 3);
+    background-color:#b33939;
     color: hsl(0, 0%, 100%);
-    box-shadow: rgb(101, 166, 3) 0px 7px 29px 0px;
+    box-shadow: #b33939;
 }
    
 .backBtnDetail:active {
     letter-spacing: 3px;
-    background-color: rgb(101, 166, 3);
+    background-color: #b33939;
     color: hsl(0, 0%, 100%);
-    box-shadow: rgb(101, 166, 3) 0px 0px 0px 0px;
+    box-shadow: #b33939;
     transform: translateY(10px);
     transition: 100ms;
 }
